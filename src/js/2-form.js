@@ -6,16 +6,20 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
     e.preventDefault();
-const name = form.elements.email.value;
+const email = form.elements.email.value;
     const message = form.elements.message.value;
 
-    const data = {
-        name,
-        message,
-    };
-
-    form.reset();
-    localStorage.removeItem('feedback-form-state');
+    if (email && message) {
+        const data = {
+            email,
+            message,
+        };
+console.log("Форма відправлена зі значеннями:", data); // Вивід у консоль
+        form.reset();
+        localStorage.removeItem('feedback-form-state');
+    } else {
+        alert("Будь ласка, заповніть обидва поля перед надсиланням форми.");
+    }
 }
 function onFormInput() {
     const email = form.elements.email.value;
