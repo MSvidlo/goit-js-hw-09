@@ -30,7 +30,7 @@ function onFormInput() {
         message,
     };
     saveToLS('feedback-form-state', data);
-} 
+};
 
 
 function saveToLS(key, value) {
